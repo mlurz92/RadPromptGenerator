@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KI-Anweisung Radiologie</title>
+    <link href="style.css" rel="stylesheet">
+    <!-- Verknüpfung zur CSS-Datei -->
+</head>
+
+<body>
+    <div class="container">
+        <div class="instructions" id="initialInstructions">
+            <h3>Anleitung:</h3>
+            <ul>
+                <li>Gewünschtes Thema oder Frage in Feld eintragen</li>
+                <li>Dokumententyp im Drop-Down-Menü auswählen</li>
+                <li>Modalität im Drop-Down-Menü auswählen</li>
+                <li>Bestätigen mit KI-Anweisung erzeugen</li>
+            </ul>
+        </div>
+        <input class="input-field" id="topicInput" type="text" placeholder="Thema/Beschreibung/Befund/Frage eingeben">
+        <!-- Eingabefeld für das Thema -->
+        <select class="input-field" id="documentType" placeholder="Dokument-Typ wählen">
+            <!-- Dropdown-Menü für die Dokumenttyp-Auswahl -->
+            <option disabled selected hidden value>Dokument-Typ wählen</option>
+            <!-- Platzhalter-Option mit den Attributen disabled, selected und hidden -->
+            <option value="Option 1">Protokoll- und Befundungshilfe</option>
+            <option value="Option 2">Differenzialdiagnosen</option>
+            <option value="Option 3">Übersicht</option>
+            <option value="Option 4">Befundüberarbeitung</option>
+            <option value="Option 5">Frage mit Radiologischem Kontext</option>
+        </select>
+        <select class="input-field" id="modalityInput" placeholder="Modalität wählen">
+            <!-- Dropdown-Menü für die Modalität-Auswahl -->
+            <option selected value>Modalität wählen</option>
+            <!-- Platzhalter-Option mit den Attributen disabled, selected und hidden -->
+            <option value="MRT">MRT</option>
+            <option value="CT">CT</option>
+            <option value="MRT und CT">MRT und CT</option>
+        </select>
+        <button class="button button-match-instruction" onclick="generateInstruction()">
+            KI-Anweisung erzeugen
+        </button>
+        <!-- Button, um die Anweisung zu generieren -->
+        <button class="button bingChatButton hidden" id="bingChatButton" onclick="openBingChat()">
+            Öffne Bing Chat
+        </button>
+        <!-- Button, um Bing Chat zu öffnen -->
+        <button class="button chatGPTButton hidden" id="chatGPTButton" onclick="openChatGPT()">
+            Öffne ChatGPT
+        </button>
+        <!-- Button, um ChatGPT zu öffnen -->
+        <button class="button bardButton hidden" id="bardButton" onclick="openBard()">
+            Öffne Bard
+        </button>
+        <!-- Button, um Bard zu öffnen -->
+        <div class="instructions hidden" id="instructions">
+            <!-- Anleitungsbereich -->
+            <h3>Anleitung:</h3>
+            <ul>
+                <li>
+                    Klick auf
+                    <strong>
+                        "Öffne Bing Chat" "Öffne ChatGPT" oder "Öffne Bard"
+                    </strong>
+                </li>
+                <li>
+                    <strong> Login </strong>
+                    mit
+                    <strong> Microsoft-Account oder Google Account </strong>
+                </li>
+                <li>
+                    Chatmodus
+                    <strong> "kreativ" </strong>
+                    auswählen
+                </li>
+                <li>
+                    Generierte
+                    <strong>
+                        KI-Anweisung einfügen (bereits in die Zwischenablage kopiert)
+                    </strong>
+                    und
+                    <strong> bestätigen. </strong>
+                </li>
+            </ul>
+        </div>
+        <div class="final-text hidden" id="finalText"></div>
+        <!-- Bereich für den generierten Text -->
+    </div>
+    <script src="script.js"></script>
+    <!-- Verknüpfung zur JavaScript-Datei -->
+</body>
+
+</html>
